@@ -1,0 +1,143 @@
+.game
+{
+    width: 100%;
+    height: 100vh;
+    background-image: url('../images/back-img.jpg');
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.game::after
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(1,1,1,.2);
+}
+.game_container
+{
+    position: relative;
+    z-index: 2;
+    width: 80%;
+    margin: auto;
+    background-color: var(--game_Color);
+    height: 600px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    border-radius: 20px;
+    transform: scale(0,0);
+    transition: all 1s ease;
+}
+.controlls_icons
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    font-size: 1.5rem;
+}
+.controlls_icons .sound
+{
+    color: var(--main_Color);
+    font-size: 1.5rem;
+}
+.controlls_icons .star_score i
+{
+    color: rgb(235, 235, 12);
+}
+.controlls_icons .sound i
+{
+    display: none;
+}
+.controlls_icons .sound .active{
+    display: block;
+}
+.controlls_icons .star_score span
+{
+    font-weight: 600;
+    font-family: sans-serif;
+}
+.number_of_score
+{
+    font-size: 1.2rem;
+}
+.game_container .qusetions
+{
+    height: 60%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    color: var(--white_Color);
+    font-weight: 700;
+    font-size: 2.3rem;
+}
+.game_container .qusetions input
+{
+    width: 100%;
+    padding: 10px 20px;
+    direction: rtl;
+    outline: 0;
+    border: 0;
+    font-size: 1.5rem;
+    background-color: var(--main_Color);
+    color: var(--white_Color);
+    border-radius: 10px;
+}
+.game_container .qusetions input::placeholder{
+    color: var(--game_Color);
+}
+.game > button{
+    z-index: 2;
+    padding: 15px 60px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    background-color: var(--game_Color);
+    outline: 0;
+    border: 0;
+    border-radius: 5px;
+    color: var(--white_Color);
+    font-weight: 600;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotate(200deg);
+    opacity: 0;
+}
+.game > .btn_animation{
+    animation: btnGme 1s ease forwards;
+}
+@keyframes btnGme{
+    0%{
+        transform: scale(0,0) rotate(200deg) translate(-20%,-30%);
+        opacity: 1;
+    }
+    100%{
+        transform: scale(1,1) rotate(0deg) translate(-50%,-50%);
+        opacity: 1;
+    }
+}
+@media (min-width:200px) and (max-width:668px){
+    .game{
+        background-position: top right;
+    }
+    .game_container {
+        width: 95%;
+    }
+    .game_container .qusetions{
+        font-size: 1.8rem;
+    }
+    .game > button{
+        opacity: 1;
+        transform: translate(-50%,-50%) rotate(0deg);
+    }
+}
